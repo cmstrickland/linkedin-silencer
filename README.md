@@ -11,20 +11,12 @@ A browser extension that filters low-quality AI/LLM hype posts from your LinkedI
 5. Hover over filtered posts to see them more clearly
 
 ## What Gets Filtered
-
-**FILTERED** - Low-quality AI hype:
-- Generic "AI will change everything" statements without substance
-- Pure engagement bait about ChatGPT/LLMs
-- "I tried AI and..." posts with no actual insights
-- Posts announcing basic ChatGPT usage as groundbreaking
-- LinkedIn influencer AI hype with vague promises
-
-**KEPT** - Quality content:
-- Posts with specific technical details or code
-- Actual project results with concrete metrics/case studies
-- Thoughtful analysis or criticism of AI
-- Posts NOT primarily about AI/LLMs
-- Educational content with genuine depth
+ 
+  Posts are classified against these criteria 
+  
+  1. Primarily about AI/LLMs (not just mentioning them)
+  2. Makes broad claims about AI or LLMs without evidence or specifics
+  3. Makes future predictions about disruptive changes coming from AI or LLMs
 
 ## Prerequisites
 
@@ -178,4 +170,4 @@ chrome.storage.local.remove('classification_cache')
 
 ## License
 
-MIT
+Demonstration code only - All rights reserved
