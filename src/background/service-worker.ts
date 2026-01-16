@@ -4,7 +4,9 @@
 const OLLAMA_URL = 'http://localhost:11434/api/generate';
 const MODEL = 'gemma2:2b-instruct-q4_0';
 const MAX_CACHE_SIZE = 1000;
-const CACHE_KEY = 'classification_cache';
+const CACHE_KEY = "classification_cache";
+
+export {};
 
 interface ClassificationResult {
   postId: string;

@@ -1,6 +1,8 @@
 // Content script for LinkedIn Silencer
 // Monitors LinkedIn feed and filters AI hype posts
 
+export {};
+
 interface ClassificationResponse {
   decision: 'FILTER' | 'KEEP';
 }
