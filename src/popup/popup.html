@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Silencer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>LinkedIn Silencer</h1>
+    <p class="subtitle">Filter AI hype from your feed</p>
+
+    <div class="toggle-container">
+      <label class="toggle">
+        <input type="checkbox" id="enableToggle" checked>
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-label" id="toggleLabel">Filtering enabled</span>
+    </div>
+
+    <div class="status" id="status">
+      <div class="status-item">
+        <span class="status-indicator" id="ollamaIndicator"></span>
+        <span id="ollamaStatus">Checking Ollama...</span>
+      </div>
+    </div>
+
+    <div class="info">
+      <p>Posts classified as low-quality AI hype will be dimmed in your LinkedIn feed.</p>
+      <p class="model-info">Model: gemma2:2b-instruct-q4_0</p>
+    </div>
+
+    <div class="actions">
+      <button id="clearCache" class="btn-secondary">Clear Cache</button>
+    </div>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

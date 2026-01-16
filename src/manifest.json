@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Silencer",
+  "version": "1.0.0",
+  "description": "Filter low-quality AI/LLM hype posts from LinkedIn feed",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.linkedin.com/*",
+    "http://localhost:11434/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/feed/*", "https://www.linkedin.com/feed"],
+      "js": ["linkedin-filter.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "LinkedIn Silencer"
+  }
+}
