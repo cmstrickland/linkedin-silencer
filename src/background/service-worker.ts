@@ -75,18 +75,21 @@ async function checkOllamaAvailable(): Promise<boolean> {
 async function getCachedClassification(postId: string): Promise<ClassificationResult | null> {
   try {
     const result = await chrome.storage.local.get(CACHE_KEY);
-    const cache: CacheData = result[CACHE_KEY] || {};
-    return cache[postId] || null;
-  } catch {
-    return null;
-  }
+
+    const cache = (result[CACHE_KEY] as CacheData) || undefined;
+    if (cache) {
+      return cache[postId] || null;
+    }
+  } catch {}
+  return null;
 }
 
 // Save classification to cache
 async function saveToCache(result: ClassificationResult): Promise<void> {
   try {
     const storageResult = await chrome.storage.local.get(CACHE_KEY);
-    const cache: CacheData = storageResult[CACHE_KEY] || {};
+    const cache: CacheData =
+      (storageResult[CACHE_KEY] as CacheData) || undefined;
 
     // Check cache size and prune if necessary
     const cacheKeys = Object.keys(cache);
