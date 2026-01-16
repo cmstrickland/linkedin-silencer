@@ -2,6 +2,8 @@
 
 A browser extension that filters low-quality AI/LLM hype posts from your LinkedIn feed using local AI classification via Ollama.
 
+![screenshot of extension working](https://www.beatworm.co.uk/images/linkedin-silencer.png)
+
 ## How It Works
 
 1. The extension monitors your LinkedIn feed for new posts
