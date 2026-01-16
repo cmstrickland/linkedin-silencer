@@ -35,31 +35,20 @@ interface CheckOllamaRequest {
 
 type MessageRequest = ClassifyRequest | ToggleRequest | CheckOllamaRequest;
 
-const CLASSIFICATION_PROMPT = `You are a content classifier for LinkedIn posts. Classify the following post as either "FILTER" or "KEEP".
+const CLASSIFICATION_PROMPT = `You are filtering LinkedIn posts. Only filter OBVIOUS low-quality AI hype.
+  Does this LinkedIn post meet ALL these criteria for filtering?
+  1. Primarily about AI/LLMs (not just mentioning them)
+  2. Makes broad claims about AI or LLMs without evidence or specifics
+  3. Makes future predictions about disruptive changes coming from AI or LLMs
 
-FILTER posts that are:
-- Generic "AI will change everything" statements without substance
-- Pure engagement bait about ChatGPT/LLMs
-- "I tried AI and..." posts with no actual insights
-- Posts announcing basic ChatGPT usage as if it's groundbreaking
-- LinkedIn influencer AI hype with vague promises
-- Predictions about AI replacing jobs without analysis
-- "AI tip of the day" type low-effort content
+  Only answer "FILTER" if ALL are true. Otherwise answer "KEEP".
 
-KEEP posts that have:
-- Specific technical details, code, or implementation insights
-- Actual project results with concrete metrics or case studies
-- Thoughtful analysis, criticism, or nuanced discussion
-- Posts that are NOT primarily about AI/LLMs
-- Educational content with genuine depth
-- Personal experiences with specific learnings
-
-Respond with ONLY "FILTER" or "KEEP" - nothing else.
-
-Post to classify:
+  Post:
 """
 {POST_TEXT}
-"""`;
+"""
+
+Your response:`;
 
 // Check if Ollama is available
 async function checkOllamaAvailable(): Promise<boolean> {
